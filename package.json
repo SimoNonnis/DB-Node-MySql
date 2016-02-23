@@ -1,0 +1,25 @@
+{
+  "name": "DB-Node-MySql",
+  "version": "0.0.1",
+  "description": "Simple connections and operations between Node.js and MySql database",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SimoNonnis/DB-Node-MySql.git"
+  },
+  "keywords": [],
+  "author": "Simon Nonnis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SimoNonnis/DB-Node-MySql/issues"
+  },
+  "homepage": "https://github.com/SimoNonnis/DB-Node-MySql#readme",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "mysql": "^2.10.2",
+    "npm": "^3.7.3"
+  }
+}
