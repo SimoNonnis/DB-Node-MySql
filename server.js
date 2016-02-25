@@ -1,41 +1,35 @@
+'use strict';
+
 var express = require('express');
 var app = express();
-var mysql = require('mysql');
+var connection = require('./db');
 
 
-// 1 Connect to DB
-var connection = mysql.createConnection({
-host : 'localhost',
-user : 'root',
-password : 'some_secret',
-database: 'apptest'
+
+
+
+
+// Root
+app.get('/', function (req, res) {
+  res.status(200).send('hello world');
 });
 
-// 2 Create table and insert one record and read it back
-connection.connect(function (err) {
-  if (err) throw err;
-  console.log('You are now connected...');
+// Basic 404 handler
+app.use(function (req, res) {
+  res.status(404).send('404! Not Found');
+});
 
-  connection.query('CREATE TABLE people(id int(1) primary key NOT NULL AUTO_INCREMENT, name varchar(50), age int, address text)', function (err,  result) {
-    if (err) throw err;
-    connection.query('INSERT INTO people(name, age, address) VALUES (?, ?, ?)', ['Orwell', 40, 'California, USA'], function (err,  result) {
-      if (err) throw err;
-      connection.query('SELECT * FROM people', function (err, result) {
-        if (err) throw err;
-          console.log(result[0].id);
-          console.log(result[0].name);
-          console.log(result[0].age);
-          console.log(result[0].address);
-      })
-    })
-  })
-})
+// Basic error handler
+app.use(function (err, req, res, next) {
+  console.error(err);
+
+  res.status(500).send(err.response || 'Oooh! Something broke!');
+});
 
 
-app.get('/', function (req, res) {
-  res.send('hello world');
-})
 
-var server = app.listen(3000, function () {
-  console.log('Up and running on port ' + server.address().port);
+var server = app.listen(process.env.PORT || 3000, function () {
+  var host = server.address().address;
+  var port = server.address().port;
+  console.log('Up and running at http://%s:%s', host, port);
 });

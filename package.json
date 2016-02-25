@@ -9,7 +9,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "test": ""
+    "start": ""
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,6 @@
   "homepage": "https://github.com/SimoNonnis/DB-Node-MySql#readme",
   "dependencies": {
     "express": "^4.13.4",
-    "mysql": "^2.10.2",
-    "npm": "^3.7.3"
+    "mysql": "^2.10.2"
   }
 }
