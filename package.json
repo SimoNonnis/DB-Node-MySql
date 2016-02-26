@@ -1,7 +1,7 @@
 {
   "name": "DB-Node-MySql",
   "description": "Simple connections and operations between Node.js and MySql database",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Simon Nonnis",
   "keywords": [
     "Node",
