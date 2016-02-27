@@ -2,7 +2,7 @@
 
 var express = require('express');
 var app = express();
-var connection = require('./db');
+var pool = require('./db');
 
 
 
